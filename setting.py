@@ -58,14 +58,17 @@ PROXY_FETCHER = [
     "freeProxy11",
     "freeProxy13",
     "freeProxy14",
-    "freeProxy15"
+    "freeProxy15",
+    "freeProxy16",
+    "freeProxy17"
+
 ]
 
 # ############# proxy validator #################
 # 代理验证目标网站
-HTTP_URL = "https://virtualhost.top/"
+HTTP_URL = "http://www.google.com/"
 
-HTTPS_URL = "https://virtualhost.top/"
+HTTPS_URL = "https://www.google.com/"
 
 # 代理验证时超时时间
 VERIFY_TIMEOUT = 10
@@ -81,7 +84,7 @@ POOL_SIZE_MIN = 20
 
 # ############# proxy attributes #################
 # 是否启用代理地域属性
-PROXY_REGION = True
+PROXY_REGION = False
 
 # ############# scheduler config #################
 
@@ -92,4 +95,4 @@ PROXY_REGION = True
 # Please uncomment the following line and set a timezone for the scheduler.
 # Otherwise it will detect the timezone from the system automatically.
 
-TIMEZONE = "Asia/Shanghai"
+# TIMEZONE = "Asia/Shanghai"
