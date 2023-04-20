@@ -87,12 +87,7 @@ POOL_SIZE_MIN = 20
 PROXY_REGION = False
 
 # ############# scheduler config #################
-
-# Set the timezone for the scheduler forcely (optional)
-# If it is running on a VM, and
-#   "ValueError: Timezone offset does not match system offset"
-#   was raised during scheduling.
-# Please uncomment the following line and set a timezone for the scheduler.
-# Otherwise it will detect the timezone from the system automatically.
-
+# 美国硅谷
+TIMEZONE = "America/Los_Angeles"
+# 中国上海
 # TIMEZONE = "Asia/Shanghai"
