@@ -217,58 +217,6 @@ class ProxyFetcher(object):
         """ geonode """
         # url = 'https://www.proxy-list.download/HTTPS'
         urls = [
-        "https://api.proxyscrape.com/?request=displayproxies&proxytype=http",
-        "https://www.proxy-list.download/api/v1/get?type=http",
-        "https://www.proxyscan.io/download?type=http",
-        "http://spys.me/proxy.txt",
-        "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
-        "https://api.openproxylist.xyz/http.txt",
-        "https://raw.githubusercontent.com/shiftytr/proxy-list/master/proxy.txt",
-        "http://alexa.lr2b.com/proxylist.txt",
-        "http://rootjazz.com/proxies/proxies.txt",
-        "https://www.freeproxychecker.com/result/http_proxies.txt",
-        "http://proxysearcher.sourceforge.net/Proxy%20List.php?type=http",
-        "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
-        "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
-        "https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt",
-        "https://raw.githubusercontent.com/opsxcq/proxy-list/master/list.txt",
-        "https://proxy-spider.com/api/proxies.example.txt",
-        "https://multiproxy.org/txt_all/proxy.txt",
-        "https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt",
-        "https://raw.githubusercontent.com/UserR3X/proxy-list/main/online/http.txt",
-        "https://raw.githubusercontent.com/UserR3X/proxy-list/main/online/https.txt",
-        'https://raw.githubusercontent.com/UptimerBot/proxy-list/main/proxies/http.txt',
-        'https://openproxy.space/list/http',
-        'https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt',
-        'https://raw.githubusercontent.com/mertguvencli/http-proxy-list/main/proxy-list/data.txt',
-        'https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt',
-        'https://raw.githubusercontent.com/almroot/proxylist/master/list.txt',
-        'https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/http.txt',
-        'https://raw.githubusercontent.com/aslisk/proxyhttps/main/https.txt',
-        'https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/http.txt',
-        'https://raw.githubusercontent.com/saisuiu/uiu/main/free.txt',
-        'https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt',
-        'https://proxylist.live/nodes/free_1.php?page=1&showall=1',
-        'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http',
-        'https://openproxy.space/list/http',
-        'https://openproxylist.xyz/http.txt',
-        'https://proxylist.live/nodes/free_1.php?page=1&showall=1',
-        'https://proxysearcher.sourceforge.net/Proxy%20List.php?type=http',
-        'https://proxyspace.pro/http.txt',
-        'https://proxyspace.pro/https.txt',
-        'https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt',
-        'https://raw.githubusercontent.com/andigwandi/free-proxy/main/proxy_list.txt',
-        'https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/http.txt',
-        'https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/https.txt',
-        'https://raw.githubusercontent.com/aslisk/proxyhttps/main/https.txt',
-        'https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/HTTP.txt',
-        'https://raw.githubusercontent.com/caliphdev/Proxy-List/master/http.txt',
-        'https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt',
-        'https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt',
-        'https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/https.txt',
-        'https://raw.githubusercontent.com/hanwayTech/free-proxy-list/main/http.txt',
-        'https://raw.githubusercontent.com/hanwayTech/free-proxy-list/main/https.txt',
-        'https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt',
         'https://raw.githubusercontent.com/HyperBeats/proxy-list/main/http.txt',
         'https://raw.githubusercontent.com/HyperBeats/proxy-list/main/https.txt',
         'https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt',
@@ -305,14 +253,103 @@ class ProxyFetcher(object):
         'https://www.proxy-list.download/api/v1/get?type=https'
         #'https://raw.githubusercontent.com/HyperBeats/proxy-list/main/http.txt'
         ]
-        all_proxies = []
         for url in urls:
             r = WebRequest().get(url, timeout=50)
             proxies = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{2,5})', r.text)
             for proxy in proxies:
                 yield ':'.join(proxy)
-        # yield all_proxies
+                
+    
+    @staticmethod
+    def freeProxy18():
+        urls = [
+            "https://api.proxyscrape.com/?request=displayproxies&proxytype=http",
+            "https://www.proxy-list.download/api/v1/get?type=http",
+            "https://www.proxyscan.io/download?type=http",
+            "http://spys.me/proxy.txt",
+            "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
+            "https://api.openproxylist.xyz/http.txt",
+            "https://raw.githubusercontent.com/shiftytr/proxy-list/master/proxy.txt",
+            "http://alexa.lr2b.com/proxylist.txt",
+            "http://rootjazz.com/proxies/proxies.txt"]
+        for url in urls:
+            r = WebRequest().get(url, timeout=50)
+            proxies = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{2,5})', r.text)
+            for proxy in proxies:
+                yield ':'.join(proxy)
 
+
+    @staticmethod
+    def freeProxy19():
+        urls = [
+            "https://www.freeproxychecker.com/result/http_proxies.txt",
+            "http://proxysearcher.sourceforge.net/Proxy%20List.php?type=http",
+            "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
+            "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
+            "https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt",
+            "https://raw.githubusercontent.com/opsxcq/proxy-list/master/list.txt",
+            "https://proxy-spider.com/api/proxies.example.txt",
+            "https://multiproxy.org/txt_all/proxy.txt",
+            "https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt",
+            "https://raw.githubusercontent.com/UserR3X/proxy-list/main/online/http.txt",
+            "https://raw.githubusercontent.com/UserR3X/proxy-list/main/online/https.txt"]
+        for url in urls:
+            r = WebRequest().get(url, timeout=50)
+            proxies = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{2,5})', r.text)
+            for proxy in proxies:
+                yield ':'.join(proxy)
+
+    @staticmethod
+    def freeProxy20():
+        urls = [
+            'https://raw.githubusercontent.com/UptimerBot/proxy-list/main/proxies/http.txt',
+            'https://openproxy.space/list/http',
+            'https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt',
+            'https://raw.githubusercontent.com/mertguvencli/http-proxy-list/main/proxy-list/data.txt',
+            'https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt',
+            'https://raw.githubusercontent.com/almroot/proxylist/master/list.txt',
+            'https://raw.githubusercontent.com/rdavydov/proxy-list/main/proxies/http.txt',
+            'https://raw.githubusercontent.com/aslisk/proxyhttps/main/https.txt',
+            'https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/http.txt',
+            'https://raw.githubusercontent.com/saisuiu/uiu/main/free.txt',
+            'https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt',
+            'https://proxylist.live/nodes/free_1.php?page=1&showall=1',
+            'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http',
+            'https://openproxy.space/list/http',
+            'https://openproxylist.xyz/http.txt',
+            'https://proxylist.live/nodes/free_1.php?page=1&showall=1',
+            'https://proxysearcher.sourceforge.net/Proxy%20List.php?type=http']
+        for url in urls:
+            r = WebRequest().get(url, timeout=50)
+            proxies = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{2,5})', r.text)
+            for proxy in proxies:
+                yield ':'.join(proxy)
+
+
+    @staticmethod
+    def freeProxy21():
+        urls = [
+            'https://proxyspace.pro/http.txt',
+            'https://proxyspace.pro/https.txt',
+            'https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt',
+            'https://raw.githubusercontent.com/andigwandi/free-proxy/main/proxy_list.txt',
+            'https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/http.txt',
+            'https://raw.githubusercontent.com/Anonym0usWork1221/Free-Proxies/main/https.txt',
+            'https://raw.githubusercontent.com/aslisk/proxyhttps/main/https.txt',
+            'https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/HTTP.txt',
+            'https://raw.githubusercontent.com/caliphdev/Proxy-List/master/http.txt',
+            'https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt',
+            'https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt',
+            'https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/https.txt',
+            'https://raw.githubusercontent.com/hanwayTech/free-proxy-list/main/http.txt',
+            'https://raw.githubusercontent.com/hanwayTech/free-proxy-list/main/https.txt',
+            'https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt'
+        ]
+        for url in urls:
+            r = WebRequest().get(url, timeout=50)
+            proxies = re.findall(r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{2,5})', r.text)
+            for proxy in proxies:
+                yield ':'.join(proxy)
     # @staticmethod
     # def wallProxy01():
     #     """

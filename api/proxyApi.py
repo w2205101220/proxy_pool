@@ -44,6 +44,7 @@ app.response_class = JsonResponse
 api_list = [
     {"url": "/get", "params": "type: ''https'|''", "desc": "get a proxy"},
     {"url": "/pop", "params": "", "desc": "get and delete a proxy"},
+    {"url": "/add", "params": "proxy", "desc": "Used for recycling proxy"},
     {"url": "/delete", "params": "proxy: 'e.g. 127.0.0.1:8080'", "desc": "delete an unable proxy"},
     {"url": "/all", "params": "type: ''https'|''", "desc": "get all proxy from proxy pool"},
     {"url": "/count", "params": "", "desc": "return proxy count"}
@@ -68,6 +69,15 @@ def pop():
     https = request.args.get("type", "").lower() == 'https'
     proxy = proxy_handler.pop(https)
     return proxy.to_dict if proxy else {"code": 0, "src": "no proxy"}
+
+
+@app.route('/add/', methods=['GET'])
+def add():
+    proxy = request.args.get('proxy')
+    if proxy == "":
+        return
+    status = proxy_handler.put(Proxy(proxy))
+    return {"code": 0, "src": status}
 
 
 @app.route('/refresh/')
